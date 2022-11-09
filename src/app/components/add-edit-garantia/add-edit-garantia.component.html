@@ -1,0 +1,126 @@
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="row mt-2">
+  <div class="center">
+    <div class="card bg-secondary mb-2" style="width: 70%;">
+      <div class="card-header text-center"> {{ operacion }} Garantía</div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="addGarantia()">
+
+    
+
+          <div class="row">
+
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="fecha" type="date" class="form-control col-6 " placeholder="Fecha">
+            </div>
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="name" type="text" class="col-6 form-control" placeholder="Nombre">
+              <small *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" class="obligatorio">*Nombre obligatorio</small>
+            </div>
+            
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="telefono" type="text" class=" col-6 form-control col-6" placeholder="Telefono">
+              <small *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched" class="obligatorio">*Teléfono obligatorio</small>
+
+            </div>
+
+          </div>
+
+          <div class="row ">
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="marca" type="text" class="form-control" placeholder="Marca">
+              <small *ngIf="form.get('marca')?.hasError('required') && form.get('marca')?.touched" class="obligatorio">*Marca obligatorio</small>
+
+            </div>
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="modelo" type="text" class="form-control" placeholder="Modelo">
+              <small *ngIf="form.get('modelo')?.hasError('required') && form.get('modelo')?.touched" class="obligatorio">*Modelo obligatorio</small>
+
+            </div>
+            <div class="col-6 col-md-4 mb-2">
+              <input formControlName="color" type="text" class="form-control" placeholder="Color">
+              <small *ngIf="form.get('color')?.hasError('required') && form.get('color')?.touched" class="obligatorio">*Color obligatorio</small>
+
+            </div>
+          </div>
+          <div class="mb-2">
+            <input formControlName="descripcion" type="text" class="form-control" placeholder="Descripción">
+            <small *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched" class="obligatorio ">*Descripcion obligatoria</small>
+  
+          </div>
+
+
+          <div class="row">
+            <div class="col-6 mb-2">
+
+              <select formControlName="distribuidor" name="distribuidor" id="distribuid" class="form-control">
+                <option value="">Distribuidor</option>
+                <option value="Vaperalia">Vaperalia</option>
+                <option value="Eciglogistica">Eciglogistica</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <small *ngIf="form.get('distribuidor')?.hasError('required') && form.get('distribuidor')?.touched" class="obligatorio">*Distribuidor obligatorio</small>
+
+            </div>
+
+            <div class="col-6 mb-2">
+              <input formControlName="files" class="form-control" type="file" id="formFileMultiple" multiple />
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-6 col-md-4 mb-2">
+
+              <div class="form-check form-switch">
+                <input formControlName="tramitada" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" >
+                <label class="form-check-label mb-1" for="flexSwitchCheckDefault">Tramitada</label>
+              </div>
+              <input formControlName="fechaTramitada" type="date" class="form-control"
+                placeholder="Fecha Tramitada">
+            </div>
+
+            <div class="col-6 col-md-4 mb-2">
+              <div class="form-check form-switch">
+                <input formControlName="aceptada" class="form-check-input " type="checkbox" id="flexSwitchCheckDefault" >
+                <label class="form-check-label mb-1" for="flexSwitchCheckDefault">Aceptada</label>
+              </div>
+              <input formControlName="fechaAceptada" type="date" class="form-control" placeholder="Fecha Aceptada">
+            </div>
+
+            <div class="col-6 col-md-4 mb-2">
+              <div class="form-check form-switch">
+                <input formControlName="entregada" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" >
+                <label class="form-check-label mb-1" for="flexSwitchCheckDefault">Entregada</label>
+              </div>
+              <input formControlName="fechaEntregada" type="date" class="form-control"
+                placeholder="Fecha Entregada">
+            </div>
+          </div>
+
+
+          <div class="row mt-2 text-center">
+            
+            <div class="col-lg-6">
+              <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
+            </div>
+            <div class="col-lg-6 mb-2">
+              <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+
+            </div>
+          </div>
+
+
+        </form>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

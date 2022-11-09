@@ -1,0 +1,35 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden;
+    background: url(assets/background.jpg);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+small.obligatorio{
+    font-size: 10px;
+    position: absolute;
+    
+}
+
+
+#tarjetaHeader {
+    background: rgba(76, 0, 130, 0.5) !important;
+}
+
+tbody tr .centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td.centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

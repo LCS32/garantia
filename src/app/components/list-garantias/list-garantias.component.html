@@ -1,0 +1,90 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
+
+
+  <div class="card border-primary mb-3 mt-2 " style="max-width: 100%;">
+    <div class="card-header title" id="tarjetaHeader">
+      <h4>Listado de Garantías</h4>
+      <button type="button" class="btn btn-secondary" routerLink="/add">Nueva Garantía</button>
+    </div>
+    <div class="card-body">
+      <table *ngIf="listGarantias.length > 0" class="table table-hover align-middle align-items-center text-center" style="color: black" >
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Tramitada</th>
+            <th scope="col">Aceptada</th>
+            <th scope="col">Entregada</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let garantia of listGarantias" class="table-default">
+            <td>{{garantia.fecha}}</td>
+            <td>{{garantia.name}}</td>
+            <td>{{garantia.telefono}}</td>
+            <td>{{garantia.marca}}</td>
+            <td>{{garantia.modelo}}</td>
+
+            <td >
+              <div *ngIf="garantia.tramitada;else noTramitada" class="centrado">
+                <td><span class="badge bg-success">TRAMITADA</span></td>
+              </div>
+              <ng-template #noTramitada>
+                <div class="centrado">
+                  <td><span class="badge bg-red">TRAMITAR</span></td>
+                </div>
+                
+              </ng-template>
+            </td>
+
+            <td>
+              <div *ngIf="garantia.aceptada;else noAceptada" class="centrado">
+                <td><span class="badge bg-success">ACEPTADA</span></td>
+              </div>
+              <ng-template #noAceptada class="centrado">
+                <div class="centrado">
+                <td><span class="badge bg-red ">ESPERANDO</span></td>
+                </div>
+              </ng-template>
+            </td>
+
+            <td>
+              <div *ngIf="garantia.entregada;else noEntregada" class="centrado">
+                <td><span class="badge bg-success">ENTREGADA</span></td>
+              </div>
+              <ng-template #noEntregada>
+                <div class="centrado">
+                  <td><span class="badge bg-red">ENTREGAR</span></td>
+                </div>
+               
+              </ng-template>
+            </td>
+            <td>
+              <a class="badge bg-secondary" routerLink="/detalles/{{ garantia.id }}"><span class="material-symbols-sharp" style="color: lightgreen">info</span></a>
+              <a class="badge bg-secondary" routerLink="/edit/{{ garantia.id }}"><span class="material-symbols-sharp" style="color: lightblue">edit</span></a>
+              <a class="badge bg-secondary" (click)="deleteProduct(garantia.id!)" type="button"><span class="material-symbols-sharp" style="color: lightcoral">delete</span></a>
+  
+            </td>
+            
+            
+
+            <!-- <td class="d-flex flex-row justify-content-around align-items-center">
+              <a class="badge bg-secondary" routerLink="/detalles/{{ garantia.id }}"><span class="material-symbols-sharp" style="color: lightgreen">info</span></a>
+              <a class="badge bg-secondary" routerLink="/edit/{{ garantia.id }}"><span class="material-symbols-sharp" style="color: lightblue">edit</span></a>
+              <a class="badge bg-secondary" (click)="deleteProduct(garantia.id!)" type="button"><span class="material-symbols-sharp" style="color: lightcoral">delete</span></a>
+            </td> -->
+
+          </tr>
+        </tbody>
+      </table>
+      <h5 *ngIf="listGarantias.length == 0">No hay garantías</h5>
+    </div>
+  </div>
+
+
+</div>

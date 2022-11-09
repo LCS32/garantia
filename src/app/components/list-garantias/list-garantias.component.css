@@ -1,0 +1,13 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline
+}
+.badge.bg-red {
+    background: rgb(255, 87, 87);
+    width: 100px;
+}
+
+.badge.bg-success {
+    width: 100px;
+}

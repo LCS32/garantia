@@ -1,0 +1,32 @@
+* {
+    color: black;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::placeholder{
+    color: black;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+#formFileMultiple.form-control {
+    color: black;
+}
+
+.form-control{
+    border: 1px solid black;
+}
+
+input[type=file]::file-selector-button {
+ color: black;
+}
+
+#distribuid.form-control.mb-2 {
+    color: black;
+}
